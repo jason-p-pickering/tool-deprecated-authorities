@@ -15,15 +15,64 @@
             </div>
         </div>
         </a>
-        <p class="headerBarTitle">App skeleton for dummies</p>
-        <button class="headerBarExit" onclick="location.href='../../..';">Exit</button>       
+        <p class="headerBarTitle">Deprecated user roles</p>
+        <button class="headerBarExit" onclick="location.href='../../..';">Exit</button>
     </div>
 
     <div class="mainView">
-        <p>Content goes here...</p>
+<style type="text/css" media="screen">
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+        text-align: left;
+    }
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #f5f5f5;
+        transition: background-color 0.3s ease;
+    }
+    button {
+        padding: 8px 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #search-input {
+        width: 100%;
+        padding: 12px;
+        margin: 20px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+</style>
 
-        <button onclick="helloWorld()">Hello</button>
-    </div>
+<div id="table-container">
+    <!-- HTML mark-up here -->
+</div>
+<!--Need a bit of space here below the table-->
+<div style="height: 20px;"></div>
+ <div id="remove-roles-container">
+    <button id="remove-selected">Remove Selected</button>
+</div>
 </body>
 
 </html>

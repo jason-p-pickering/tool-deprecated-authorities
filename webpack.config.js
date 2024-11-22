@@ -4,7 +4,6 @@ const webpack = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
-
 //const dhisConfigPath = process.env.DHIS2_HOME && `${process.env.DHIS2_HOME}/config`;
 
 var dhisConfig;
@@ -28,7 +27,7 @@ const webpackConfig = {
     devtool: "source-map",
     output: {
         path: __dirname + "/build",
-        filename: "[name]-[hash].js",
+        filename: "[name]-[fullhash].js",
         publicPath: isDevBuild ? "http://localhost:8081/" : "./"
     },
     module: {
@@ -60,7 +59,10 @@ const webpackConfig = {
         ]
     },
     resolve: {
-        alias: {}
+        alias: {},
+        fallback: {
+            fs: false
+        }
     },
     plugins: [
         new HTMLWebpackPlugin({
@@ -71,11 +73,6 @@ const webpackConfig = {
                 { from: "./src/css", to: "css" },
                 { from: "./src/img", to: "img" }
             ]
-        }),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery"
         }),
         !isDevBuild ? undefined : new webpack.DefinePlugin({
             DHIS_CONFIG: JSON.stringify(dhisConfig),
@@ -89,10 +86,14 @@ const webpackConfig = {
         port: devServerPort,
         compress: true,
         proxy: {
-            "/api": dhisConfig.baseUrl,
-        }
+            "/api/*": {
+              "target": "http://localhost:8080/dhis",
+              "auth": "admin:district",
+            }
+          }
     },
     mode: "development"
 };
+
 
 module.exports = webpackConfig;
