@@ -1,6 +1,6 @@
 {
-  "name": "dhis2_deprecated_user_roles",
-  "description": "Deprecated User Roles",
+  "name": "dhis2_deprecated_authorities",
+  "description": "Deprecated Authorities",
   "version": "0.1.0",
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -39,7 +39,7 @@
       "48": "img/icons/app_logo_48x48.png",
       "96": "img/icons/app_logo_96x96.png"
     },
-    "name": "Deprecated User Roles",
+    "name": "Deprecated Authorities",
     "version": "0.1.0",
     "appType": "APP"
   },

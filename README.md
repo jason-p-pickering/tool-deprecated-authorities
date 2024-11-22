@@ -1,4 +1,4 @@
-# DHIS2 Deprecated User Role App
+# DHIS2 Deprecated Authorities App
 
 ## License
 © Copyright 2024 University of Oslo
