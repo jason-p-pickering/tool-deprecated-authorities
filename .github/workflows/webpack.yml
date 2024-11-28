@@ -42,7 +42,7 @@ jobs:
         body_path: CHANGELOG.md
         overwrite: true
       env:
-        GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
