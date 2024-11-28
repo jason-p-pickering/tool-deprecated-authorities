@@ -1,6 +1,7 @@
-# DHIS2 Deprecated Authorities App
+# DHIS2 Deprecated Authorities Tool
 
 ## License
+
 © Copyright 2024 University of Oslo
 
 ## Overview
