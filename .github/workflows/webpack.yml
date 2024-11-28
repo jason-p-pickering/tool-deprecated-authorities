@@ -31,9 +31,8 @@ jobs:
         yarn run zip
 
     - name: Get version
+      run: echo "::set-output name=version::$(node -p -e "require('./package.json').version")"
       id: version
-      run: |
-        echo "version=$(node -p -e 'require(\"./package.json\").version')" >> $GITHUB_ENV
 
     - name: Create Release
       uses: actions/create-release@v1
@@ -45,7 +44,7 @@ jobs:
         tag_name: v${{ env.version }}
         body_path: CHANGELOG.md
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
