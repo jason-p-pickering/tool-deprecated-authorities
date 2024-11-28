@@ -41,7 +41,7 @@ jobs:
         tag_name: v${{ steps.version.outputs.version }}
         body_path: CHANGELOG.md
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
