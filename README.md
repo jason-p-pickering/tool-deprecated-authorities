@@ -20,6 +20,9 @@ as a best-effort. Certain installations may use custom authorities which the ser
 is not aware of, and thus they may be flagged by this app. Consider carefully
 which authorities to remove before you proceed.
 
+As is always the case, you are advised to work first in a development environment, and
+only after you have tested the changes made by this tool, should you then move to production.
+
 ## Getting started
 
 ### Install dependencies
