@@ -24,11 +24,8 @@ jobs:
 
     - name: Build
       run: |
-        npm install
-        npx webpack
-
-    - name: Create zip file
-      run: zip -r release.zip dist
+        yarn install
+        yarn run zip
 
     - name: Get version
       run: echo "::set-output name=version::$(node -p -e "require('./package.json').version")"
@@ -50,6 +47,6 @@ jobs:
       uses: actions/upload-release-asset@v1
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./release.zip
-        asset_name: release.zip
+        asset_path: ./compiled/dhis2_deprecated_authorities.zip
+        asset_name: dhis2_deprecated_authorities.zip
         asset_content_type: application/zip
