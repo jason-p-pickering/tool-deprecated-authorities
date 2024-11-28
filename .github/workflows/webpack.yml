@@ -1,4 +1,4 @@
-name: Build release artifact on tag
+name: Build release artifact
 
 on:
   push:
