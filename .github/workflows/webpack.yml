@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,8 +31,8 @@ jobs:
         yarn run zip
 
     - name: Get version
-      run: echo "::set-output name=version::$(node -p -e "require('./package.json').version")"
       id: version
+      run: echo "version=$(node -p -e \"require('./package.json').version\")" >> $GITHUB_ENV
 
     - name: Create Release
       uses: actions/create-release@v1
@@ -37,8 +40,8 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: ${{ steps.version.outputs.version }}
-        tag_name: v${{ steps.version.outputs.version }}
+        release_name: ${{ env.version }}
+        tag_name: v${{ env.version }}
         body_path: CHANGELOG.md
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
